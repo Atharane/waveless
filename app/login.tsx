@@ -1,7 +1,8 @@
 import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { Music } from "lucide-react"
+
+// import { Music } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
@@ -50,7 +51,8 @@ export default function AuthenticationPage() {
             }}
           />
           <div className="relative z-20 flex items-center text-lg font-medium">
-            <Music className="mr-2 h-6 w-6" /> Waveless productions
+            {/* <Music className="mr-2 h-6 w-6" />  */}
+            Waveless productions
           </div>
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2">
