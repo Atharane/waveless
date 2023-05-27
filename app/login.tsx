@@ -55,7 +55,7 @@ export default function AuthenticationPage() {
           <div className="relative z-20 mt-auto">
             <blockquote className="space-y-2">
               <p className="text-lg">
-                &ldquo;lorem ipsum dolor sit amet adipuiu dshf dfsg  &rdquo;
+                &ldquo;lorem ipsum dolor sit amet adipuiu dshf dfsg &rdquo;
               </p>
               <footer className="text-sm">Bruno Fernandes</footer>
             </blockquote>

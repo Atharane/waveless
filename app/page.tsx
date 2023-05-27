@@ -1,13 +1,17 @@
 import Link from "next/link"
+// import { AuthContextProvider } from "@/context/auth-context.js"
 
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
-import MusicPage from "./music"
+
 import AuthenticationPage from "./login"
+import MusicPage from "./music"
 
 export default function IndexPage() {
   return (
-    // <MusicPage/>
-    <AuthenticationPage/>
+    // <AuthContextProvider>
+      // <MusicPage /> 
+      <AuthenticationPage />
+    // </AuthContextProvider>
   )
 }
