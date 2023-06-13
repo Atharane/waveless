@@ -4,6 +4,8 @@ import {
   Moon,
   SunMedium,
   Twitter,
+  Mail,
+  Loader2,
   type Icon as LucideIcon,
 } from "lucide-react"
 
@@ -29,4 +31,6 @@ export const Icons = {
       ></path>
     </svg>
   ),
+  google: Mail,
+  spinner: Loader2
 }

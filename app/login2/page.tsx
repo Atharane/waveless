@@ -7,7 +7,6 @@ import {
   signOut,
 } from "firebase/auth"
 
-// import { Mail } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
