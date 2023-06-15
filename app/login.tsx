@@ -26,24 +26,28 @@ export const metadata: Metadata = {
 }
 
 export default function AuthenticationPage() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  // const [email, setEmail] = useState("")
+  // const [password, setPassword] = useState("")
   const [user, setUser] = useState<any>("") // MAKESHIFT solution
   const dispatch = useDispatch<AppDispatch>()
 
-  const signInWithEmail = async () => {
-    try {
-      await createUserWithEmailAndPassword(auth, email, password)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const signInWithEmail = async () => {
+  //   try {
+  //     await createUserWithEmailAndPassword(auth, email, password)
+
+  //     dispatch(login({ name: email, isLoggedIn: true, email: email }))
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
   const signInWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider)
       const user = result.user
       setUser(user.displayName)
+
+      // below im updating value in REDUX STORE
       dispatch(
         login({ name: user.displayName, isLoggedIn: true, email: user.email })
       )
@@ -122,7 +126,10 @@ export default function AuthenticationPage() {
                   Enter your email below to create your account
                 </p>
               </div>
-              <UserAuthForm signInWithGoogle={signInWithGoogle} />
+              <UserAuthForm
+                signInWithGoogle={signInWithGoogle}
+                // signInWithEmail={signInWithEmail}
+              />
               <p className="px-8 text-center text-sm text-muted-foreground">
                 By clicking continue, you agree to our{" "}
                 <Link
