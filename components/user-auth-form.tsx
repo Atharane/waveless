@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Icons } from "@/components/icons"
 
 // interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
-interface UserAuthFormProps{ 
+interface UserAuthFormProps {
   signInWithGoogle: () => void
 }
 
@@ -41,9 +41,10 @@ export function UserAuthForm({ signInWithGoogle }: UserAuthFormProps) {
               autoComplete="email"
               autoCorrect="off"
               disabled={isLoading}
-            /> 
+            />
           </div>
-          <Button disabled={isLoading}>
+          {/* <br /> */}
+          <Button disabled={isLoading} className="mt-2">
             {isLoading && (
               <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
             )}
@@ -61,7 +62,12 @@ export function UserAuthForm({ signInWithGoogle }: UserAuthFormProps) {
           </span>
         </div>
       </div>
-      <Button variant="outline" type="button" disabled={isLoading} onClick={signInWithGoogle}>
+      <Button
+        variant="outline"
+        type="button"
+        disabled={isLoading}
+        onClick={signInWithGoogle}
+      >
         {isLoading ? (
           <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
         ) : (

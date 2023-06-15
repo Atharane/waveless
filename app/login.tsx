@@ -10,12 +10,15 @@ import {
   signOut,
 } from "firebase/auth"
 import { Music } from "lucide-react"
+import { useDispatch } from "react-redux"
 
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import { UserAuthForm } from "@/components/user-auth-form"
 
 import { auth, googleProvider } from "../config/firebase"
+import { login } from "../features/user"
+import { AppDispatch } from "./store"
 
 export const metadata: Metadata = {
   title: "Authentication",
@@ -26,6 +29,7 @@ export default function AuthenticationPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [user, setUser] = useState<any>("") // MAKESHIFT solution
+  const dispatch = useDispatch<AppDispatch>()
 
   const signInWithEmail = async () => {
     try {
@@ -40,6 +44,9 @@ export default function AuthenticationPage() {
       const result = await signInWithPopup(auth, googleProvider)
       const user = result.user
       setUser(user.displayName)
+      dispatch(
+        login({ name: user.displayName, isLoggedIn: true, email: user.email })
+      )
     } catch (error) {
       console.log(error)
     }
@@ -105,8 +112,8 @@ export default function AuthenticationPage() {
         {user ? (
           <h1 className="text-4xl text-center ">Logged in as {user}</h1>
         ) : (
-          <div className="lg:p-8">
-            <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
+          <div className="lg:p-8 ">
+            <div className="mx-auto flex w-full flex-col justify-center space-y-8 sm:w-[350px]">
               <div className="flex flex-col space-y-2 text-center">
                 <h1 className="text-2xl font-semibold tracking-tight">
                   Create an account
